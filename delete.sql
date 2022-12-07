@@ -1,0 +1,15 @@
+drop table Addresses
+drop table Orders
+drop table Delivery_units
+drop table Deliverymen
+drop table Group_of_packages
+drop table Driverlogs
+drop table Packages
+drop table Receivers
+drop table Tracker
+drop table Tracking_info
+drop table Transshipments
+drop table Users
+drop table Vehicles
+drop table HasAddress
+drop table Transports
