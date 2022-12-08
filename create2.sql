@@ -1,18 +1,18 @@
 CREATE TABLE Users
 (
  userID INT PRIMARY KEY,
- name CHAR(12) not null,
- surname CHAR(12) not null,
+ name CHAR(20) CHECK (name like '[a-zA-Z]{3, 20}') not null,
+ surname CHAR(12) CHECK (surname like '%[^a-zA-Z]%') not null,
  user_name CHAR(15) not null UNIQUE,
  password CHAR(18) not null,
- email CHAR(20) not null UNIQUE
+ email VARCHAR(255) CHECK (email like '%_@__%.__%')not null UNIQUE
 
 );
 CREATE TABLE Addresses
 (
  addressID INT PRIMARY KEY,
- city CHAR(20) not null,
- region CHAR(22) not null,
+ city CHAR(20) CHECK (city like '%[^a-zA-Z]%') not null,
+ region CHAR(30) not null,
  postcode CHAR(6) CHECK (postcode like '[0-9][0-9]-[0-9][0-9][0-9]') not null,
  street CHAR(12) not null, 
  building_number INT
@@ -27,9 +27,9 @@ PRIMARY KEY (userREF, addressREF)
 CREATE TABLE Receivers
 (
  receiverID INTEGER PRIMARY KEY,
- surname CHAR (12) not null,
- name CHAR(12) not null,
- email CHAR(20) not null
+ name CHAR(30) CHECK ( name like '%[^a-zA-Z]%')not null,
+ surname CHAR (30) CHECK ( surname like '%[^a-zA-Z]%')not null,
+ email CHAR(25)CHECK (email like '%_@__%.__%') not null
 );
 CREATE TABLE Orders
 (
@@ -73,7 +73,7 @@ addressREF INT REFERENCES Addresses ON DELETE CASCADE
 CREATE TABLE Deliverymen
 (
 deliverymanID INT PRIMARY KEY,
-phone_num CHAR(9) CHECK (phone_num like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]') not null
+phone_num CHAR(9) CHECK (phone_num like '[0-9]{11}') not null
 );
 CREATE TABLE Vehicles
 (
