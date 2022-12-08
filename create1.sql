@@ -13,7 +13,7 @@ CREATE TABLE Addresses
  addressID INT PRIMARY KEY,
  city CHAR(20) not null,
  region CHAR(22) not null,
- postcode CHAR(6) CHECK (postcode LIKE '[0-9][0-9]-[0-9][0-9][0-9]') NOT NULL,
+ postcode CHAR(6) CHECK (postcode like '[0-9][0-9]-[0-9][0-9][0-9]') not null,
  street CHAR(12) not null, 
  building_number INT
 	
@@ -29,7 +29,7 @@ CREATE TABLE Receivers
  receiverID INTEGER PRIMARY KEY,
  surname CHAR (12) not null,
  name CHAR(12) not null,
- email CHAR(20) not null,
+ email CHAR(20) not null
 );
 CREATE TABLE Orders
 (
