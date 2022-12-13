@@ -1,9 +1,9 @@
 INSERT INTO Users Values (1, 'Wiktor', 'Czetyrbok', 'kasztanators', '12345', 's188695@gmail.com')
-INSERT INTO Users Values (2, 'Lucas', 'Crancah', 'quepasa', 'oeamf', 's18sd95@gmail.com')
-INSERT INTO Users Values (3, 'Eulogiusz', 'Ryibiñski', 'lewy', '1xv345', 's134695@gmail.com')
-INSERT INTO Users Values (4, 'Eleonora', 'Micha³ek', 'ander', '432bbr', 's1856395@gmail.com')
-INSERT INTO Users Values (5, 'Bo¿ena', 'Ostrowska', 'lewarek', '213asdf', 's18863245@gmail.com')
-INSERT INTO Users Values (6, 'Anna', 'Soko³owska', 'kalkulator', 'wdgf34', 's188695@gmail.com')
+INSERT INTO Users Values (2, 'Lucas', 'Crancah', 'quepasa', 'oeamf5', 's18sd95@gmail.com')
+INSERT INTO Users Values (3, 'Eulogiusz', 'Ryibinski', 'lewy', '1xv345', 's134695@gmail.com')
+INSERT INTO Users Values (4, 'Eleonora', 'Michalek', 'ander', '432bbr', 's1856395@gmail.com')
+INSERT INTO Users Values (5, 'Bozena', 'Ostrowska', 'lewarek', '213asdf', 's18863245@gmail.com')
+INSERT INTO Users Values (6, 'Anna', 'Sokolowska', 'kalkulator', 'wdgf34', 's188295@gmail.com')
 INSERT INTO Users Values (7, 'Agata', 'Padzina', 'szlanka', '4yt3qgwer', 's112695@gmail.com')
 INSERT INTO Users Values (8, 'Dariusz', 'Dario', 'glosnik', 'DGSVgbas', 's1318695@gmail.com')
 INSERT INTO Users Values (9, 'Michal', 'Tukowski', 'scyzoryk', 'aresvbyt', 's175695@gmail.com')
@@ -11,16 +11,22 @@ INSERT INTO Users Values (10, 'Adrian', 'Chodan', 'sluchawki', 'kugfghf', 's1886
 SELECT * FROM Users
 
 INSERT INTO Addresses Values (1, 'Gdansk', 'Pomorskie' , '80-152', 'Traugutta', 9)
-INSERT INTO Addresses Values (2, 'Warszawa', 'Mazowieckie' , '12-152', 'Europejska', 19)
-INSERT INTO Addresses Values (3, 'Torun', 'Kujawsko-Pomorskie' , '80-152', 'Jadwigi', 3)
-INSERT INTO Addresses Values (4, 'Bialystko', 'Podlaskie' , '80-152', 'Ketrzynskiego', 7)
+INSERT INTO Addresses Values (2, 'Warszawa', 'Mazowieckie' , '00-018', 'Europejska', 19)
+INSERT INTO Addresses Values (3, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Jadwigi', 3)
+INSERT INTO Addresses Values (4, 'Bialystok', 'Podlaskie' , '15-008', 'Ketrzynskiego', 7)
 INSERT INTO Addresses Values (5, 'Poznan', 'Wielkopolska' , '80-152', 'Stocznia', 43)
 INSERT INTO Addresses Values (6, 'Bydgoszcz', 'Kujawsko-Pomorskie' , '80-152', '3 Maja', 12)
-INSERT INTO Addresses Values (7, 'Gdansk', 'Pomorskie' , '80-152', 'Wysoka', 34)
-INSERT INTO Addresses Values (8, 'Warszawa', 'Mazowieckie' , '80-152', 'Krotka', 11)
+INSERT INTO Addresses Values (7, 'Gdansk', 'Pomorskie' , '85-032', 'Wysoka', 34)
+INSERT INTO Addresses Values (8, 'Warszawa', 'Mazowieckie' , '00-018', 'Krotka', 11)
 INSERT INTO Addresses Values (9, 'Gdansk', 'Pomorskie' , '80-152', 'Dluga', 91)
-INSERT INTO Addresses Values (10, 'Krakow', 'Malopolskie' , '80-152', 'Boczna', 9)
-
+INSERT INTO Addresses Values (10, 'Krakow', 'Malopolskie' , '30-033', 'Boczna', 9)
+INSERT INTO Addresses Values (11, 'Warszawa', 'Mazowieckie' , '00-018', 'Krotka', 11)
+INSERT INTO Addresses Values (12, 'Gdansk', 'Pomorskie' , '80-152', 'Dluga', 21)
+INSERT INTO Addresses Values (13, 'Krakow', 'Malopolskie' , '30-023', 'Boczna', 6)
+INSERT INTO Addresses Values (14, 'Bialystok', 'Podlaskie' , '15-008', 'Ketrzynskiego', 7)
+INSERT INTO Addresses Values (15, 'Bialystok', 'Podlaskie' , '15-008', 'Ketrzynskiego', 1)
+INSERT INTO Addresses Values (16, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 3)
+INSERT INTO Addresses Values (17, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 2)
 
 SELECT * FROM Addresses
 
@@ -37,18 +43,18 @@ INSERT INTO HasAddress Values ( 9,2 )
 INSERT INTO HasAddress Values ( 10,1 )
 
 SELECT * FROM HasAddress
+DELETE HasAddress WHERE userREF =1
 
-
-INSERT INTO Receivers Values ( 1,'Kopeæ', 'Kamil', '191220@gmail.com')
+INSERT INTO Receivers Values ( 1,'Kopel', 'Kamil', '191220@gmail.com')
 INSERT INTO Receivers Values ( 2,'Mieszko', 'Adam', '190450@gmail.com')
 INSERT INTO Receivers Values ( 3,'Pach', 'Adrian', '19023415@gmail.com')
-INSERT INTO Receivers Values ( 4,'Rogoziñski', 'Anastazy', '237623@gmail.com')
-INSERT INTO Receivers Values ( 5,'D¹bski', 'Amadeusz', '3894271@gmail.com')
+INSERT INTO Receivers Values ( 4,'Rogozinski', 'Anastazy', '237623@gmail.com')
+INSERT INTO Receivers Values ( 5,'Debski', 'Amadeusz', '3894271@gmail.com')
 INSERT INTO Receivers Values ( 6,'Krasucki', 'Antoni', '2473868@gmail.com')
 INSERT INTO Receivers Values ( 7,'Krzewski', 'Arkady', '14387@gmail.com')
 INSERT INTO Receivers Values ( 8,'Oleszkiewicz', 'Artur', '41378@gmail.com')
 INSERT INTO Receivers Values ( 9,'Popiela', 'Bernard', '413522@gmail.com')
-INSERT INTO Receivers Values ( 10,'Siedlecki', 'Bogumys³aw', '315243@gmail.com')
+INSERT INTO Receivers Values ( 10,'Siedlecki', 'Bogumyslaw', '315243@gmail.com')
 SELECT * FROM Receivers
 
 INSERT INTO Orders Values(1, '2020-01-01 00:00:00', 10)
@@ -125,8 +131,8 @@ INSERT INTO Deliverymen Values(5, '754451033')
 INSERT INTO Deliverymen Values(6, '887531166')
 INSERT INTO Deliverymen Values(7, '386510460')
 INSERT INTO Deliverymen Values(8, '831368058')
-INSERT INTO Deliverymen Values(8, '296440129')
-INSERT INTO Deliverymen Values(8, '604312416')
+INSERT INTO Deliverymen Values(9, '296440129')
+INSERT INTO Deliverymen Values(10, '604312416')
 SELECT * FROM Deliverymen
 
 INSERT INTO Vehicles Values(1,'NGI5U27', 'lorry', 0)

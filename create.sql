@@ -1,10 +1,10 @@
 	CREATE TABLE Users
 	(
 	 userID INT PRIMARY KEY,
-	 name CHAR(25) CHECK (name like '[a-zA-Z]') not null,
-	 surname CHAR(35) CHECK (surname like '%[a-zA-Z]%') not null,
+	 name CHAR(25) CHECK (name NOT LIKE '%[^a-z, A-Z]%') not null,
+	 surname CHAR(35) CHECK (surname NOT LIKE '%[^a-z , A-Z]%') not null,
 	 user_name CHAR(25) not null UNIQUE,
-	 password CHAR(25) not null,
+	 password CHAR(25) CHECK (LEN(password) >= 5)not null,
 	 email VARCHAR(255) CHECK (email like '%_@__%.__%')not null UNIQUE
 
 	);
@@ -14,9 +14,8 @@
 	 city CHAR(20) CHECK (city like '%[^a-zA-Z]%') not null,
 	 region CHAR(30) not null,
 	 postcode CHAR(6) CHECK (postcode like '[0-9][0-9]-[0-9][0-9][0-9]') not null,
-	 street CHAR(12) not null, 
-	 building_number INT
-	
+	 street CHAR(25) not null, 
+	 building_number CHAR(5) not null
 	);
 	CREATE TABLE HasAddress
 	(
@@ -27,8 +26,8 @@
 	CREATE TABLE Receivers
 	(
 	 receiverID INTEGER PRIMARY KEY,
-	 name CHAR(30) CHECK ( name like '%[^a-zA-Z]%')not null,
-	 surname CHAR (30) CHECK ( surname like '%[^a-zA-Z]%')not null,
+	 name CHAR(30) CHECK ( name NOT LIKE '%[^a-z, A-Z]%')not null,
+	 surname CHAR (30) CHECK ( surname  NOT LIKE '%[^a-z , A-Z]%')not null,
 	 email CHAR(25) CHECK (email like '%_@__%.__%') not null
 	);
 	CREATE TABLE Orders
@@ -73,7 +72,7 @@
 	CREATE TABLE Deliverymen
 	(
 	deliverymanID INT PRIMARY KEY,
-	phone_num CHAR(9) CHECK (phone_num like '[0-9]{11}') not null
+	phone_num CHAR(9) CHECK (phone_num NOT LIKE '%[^0-9]%{9}') not null
 	);
 	CREATE TABLE Vehicles
 	(
