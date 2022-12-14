@@ -27,11 +27,15 @@ INSERT INTO Addresses Values (14, 'Bialystok', 'Podlaskie' , '15-008', 'Ketrzyns
 INSERT INTO Addresses Values (15, 'Bialystok', 'Podlaskie' , '15-008', 'Ketrzynskiego', 1)
 INSERT INTO Addresses Values (16, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 3)
 INSERT INTO Addresses Values (17, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 2)
+INSERT INTO Addresses Values (18, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 4)
+INSERT INTO Addresses Values (19, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 5)
+INSERT INTO Addresses Values (20, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 6)
+INSERT INTO Addresses Values (21, 'Torun', 'Kujawsko-Pomorskie' , '87-162', 'Mieszka', 7)
 
 SELECT * FROM Addresses
 
 
-INSERT INTO HasAddress Values ( 1,10 )
+INSERT INTO HasAddress Values ( 1,9 )
 INSERT INTO HasAddress Values ( 2,9 )
 INSERT INTO HasAddress Values ( 3,8 )
 INSERT INTO HasAddress Values ( 4,7 )
@@ -40,7 +44,7 @@ INSERT INTO HasAddress Values ( 6,5 )
 INSERT INTO HasAddress Values ( 7,4 )
 INSERT INTO HasAddress Values ( 8,3 )
 INSERT INTO HasAddress Values ( 9,2 )
-INSERT INTO HasAddress Values ( 10,1 )
+INSERT INTO HasAddress Values ( 9,1 )
 
 SELECT * FROM HasAddress
 DELETE HasAddress WHERE userREF =1
@@ -57,7 +61,7 @@ INSERT INTO Receivers Values ( 9,'Popiela', 'Bernard', '413522@gmail.com')
 INSERT INTO Receivers Values ( 10,'Siedlecki', 'Bogumyslaw', '315243@gmail.com')
 SELECT * FROM Receivers
 
-INSERT INTO Orders Values(1, '2020-01-01 00:00:00', 10)
+INSERT INTO Orders Values(1, '2020-01-01 00:00:00', 9)
 INSERT INTO Orders Values(2, '2022-10-14 21:20:20', 9)
 INSERT INTO Orders Values(3, '2021-05-02 17:02:31', 8)
 INSERT INTO Orders Values(4, '2020-07-16 15:00:18', 7)
@@ -69,35 +73,44 @@ INSERT INTO Orders Values(9, '2021-06-06 22:25:15', 2)
 INSERT INTO Orders Values(10, '2021-06-11 09:21:08', 1)
 
 
-
-
-
-
 SELECT * FROM Orders
 
-INSERT INTO Packages Values(1, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(2, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(3, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(4, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(5, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(6, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(7, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(8, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(9, 0, 12, 12, 15, 20, 1, 1, 1)
-INSERT INTO Packages Values(10, 0, 12, 12, 15, 20, 1, 1, 1)
+INSERT INTO Packages Values(1, 0, 13, 3, 5, 2, 18, 1, 1)
+INSERT INTO Packages Values(2, 1, 12, 2, 13, 20, 19, 1, 2)
+INSERT INTO Packages Values(3, 0, 1, 52, 12, 30, 19, 3, 3)
+INSERT INTO Packages Values(4, 0, 11, 12, 11, 21, 20, 2, 4)
+INSERT INTO Packages Values(5, 1, 16, 178, 14, 40, 21, 2, 5)
+INSERT INTO Packages Values(6, 0, 18, 123, 11, 10, 21, 3, 6)
+INSERT INTO Packages Values(7, 1, 19, 5, 15, 8, 8, 4, 7)
+INSERT INTO Packages Values(8, 0, 14, 12, 16, 6, 4, 5, 8)
+INSERT INTO Packages Values(9, 1, 12, 12, 18, 22, 5, 6, 9)
+INSERT INTO Packages Values(10, 0, 19, 11, 19, 12, 3, 7, 10)
+INSERT INTO Packages Values(11, 1, 12, 112, 17, 31, 1, 8, 11)
+INSERT INTO Packages Values(12, 0, 11, 121, 15, 6, 9, 9, 12)
+INSERT INTO Packages Values(13, 0, 141, 121, 18, 4, 17, 10, 13)
 SELECT * FROM Packages
 
 
 INSERT INTO Tracking_info Values(1, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(2, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(3, 'Paczka wyjechala z punktu A')
+INSERT INTO Tracking_info Values(2, 'Paczka wyjechala z punktu B')
+INSERT INTO Tracking_info Values(3, 'Paczka wyjechala z punktu C')
 INSERT INTO Tracking_info Values(4, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(5, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(6, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(7, 'Paczka wyjechala z punktu A')
+INSERT INTO Tracking_info Values(5, 'Paczka wyjechala z punktu B')
+INSERT INTO Tracking_info Values(6, 'Paczka wyjechala z punktu C')
+INSERT INTO Tracking_info Values(7, 'Paczka wyjechala z punktu F')
 INSERT INTO Tracking_info Values(8, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(9, 'Paczka wyjechala z punktu A')
-INSERT INTO Tracking_info Values(10, 'Paczka wyjechala z punktu A')
+INSERT INTO Tracking_info Values(9, 'Paczka wyjechala z punktu B')
+INSERT INTO Tracking_info Values(10, 'Paczka wyjechala z punktu C')
+INSERT INTO Tracking_info Values(11, 'Paczka w sortowni A')
+INSERT INTO Tracking_info Values(12, 'Paczka w sortowni B')
+INSERT INTO Tracking_info Values(13, 'Paczka w sortowni A')
+INSERT INTO Tracking_info Values(14, 'Paczka w sortowni B')
+INSERT INTO Tracking_info Values(15, 'Paczka w sortowni H')
+INSERT INTO Tracking_info Values(16, 'Paczka w sortowni C')
+INSERT INTO Tracking_info Values(17, 'Paczka w sortowni A')
+INSERT INTO Tracking_info Values(18, 'Paczka w sortowni G')
+INSERT INTO Tracking_info Values(19, 'Paczka w sortowni A')
+INSERT INTO Tracking_info Values(20, 'Paczka w sortowni B')
 
 SELECT * FROM Tracking_info
 
@@ -111,10 +124,26 @@ INSERT INTO Tracker Values(7 ,4 )
 INSERT INTO Tracker Values(8 ,3 )
 INSERT INTO Tracker Values(9 ,2 )
 INSERT INTO Tracker Values(10 ,1 )
+INSERT INTO Tracker Values(11 ,10 )
+INSERT INTO Tracker Values(12 ,9 )
+INSERT INTO Tracker Values(13 ,8 )
+INSERT INTO Tracker Values(14 ,7 )
+INSERT INTO Tracker Values(15 ,6 )
+INSERT INTO Tracker Values(16 ,5 )
+INSERT INTO Tracker Values(17 ,4 )
+INSERT INTO Tracker Values(18 ,3 )
+INSERT INTO Tracker Values(19 ,2 )
+INSERT INTO Tracker Values(20 ,1 )
 
 SELECT * FROM Tracker
 
-INSERT INTO Delivery_units Values(1, 124, 1)
+INSERT INTO Delivery_units Values(1, 124, 10)
+INSERT INTO Delivery_units Values(2, 1124, 12)
+INSERT INTO Delivery_units Values(3, 1424, 13)
+INSERT INTO Delivery_units Values(4, 5224, 14)
+INSERT INTO Delivery_units Values(5, 1456, 15)
+INSERT INTO Delivery_units Values(6, 12413, 16)
+INSERT INTO Delivery_units Values(7, 13524, 17)
 SELECT * FROM Delivery_units
 
 
@@ -152,37 +181,52 @@ INSERT INTO Vehicles Values(12,'LPA9846', 'lorry', 0)
 SELECT * FROM Vehicles
 
 
-INSERT INTO Driverlogs Values(1, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(2, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(3, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(4, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(5, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(6, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(7, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(8, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(9, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(10, 'B2', 1, 1)
-INSERT INTO Driverlogs Values(11, 'B2', 1, 1)
+INSERT INTO Driverlogs Values(1, 'C', 1, 12)
+INSERT INTO Driverlogs Values(2, 'C', 2, 11)
+INSERT INTO Driverlogs Values(3, 'C', 3, 10)
+INSERT INTO Driverlogs Values(4, 'B1', 4, 9)
+INSERT INTO Driverlogs Values(5, 'B2', 5, 8)
+INSERT INTO Driverlogs Values(6, 'C', 6, 7)
+INSERT INTO Driverlogs Values(7, 'B1', 7, 6)
+INSERT INTO Driverlogs Values(8, 'B2', 8, 5)
+INSERT INTO Driverlogs Values(9, 'B', 9, 4)
+INSERT INTO Driverlogs Values(10, 'B', 10, 3)
+INSERT INTO Driverlogs Values(12, 'B', 1, 2)
+INSERT INTO Driverlogs Values(13, 'C', 2, 1)
+INSERT INTO Driverlogs Values(14, 'C', 3, 1)
 SELECT * FROM Driverlogs
 
 
-INSERT INTO Transports Values(1, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(2, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(3, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(4, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(5, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(6, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(7, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(8, 'picked', 8.241234, 2.124134, 1, 1,1,1)
-INSERT INTO Transports Values(9, 'picked', 8.241234, 2.124134, 1, 1,1,1)
+INSERT INTO Transports Values(1, 'picked', 8.2412345, 2.124134, 1, 10,1,6)
+INSERT INTO Transports Values(2, 'sorted', 8.2412341, 26.826999, 2, 9,2,7)
+INSERT INTO Transports Values(3, 'picked', 8.2412365, 2.124134, 3, 8,3,7)
+INSERT INTO Transports Values(4, 'picked', 8.2416554, 2.124134, 4, 7,4,5)
+INSERT INTO Transports Values(5, 'sorted', 8.2413223, 13.513534, 5, 6,6,2)
+INSERT INTO Transports Values(6, 'picked', 12.1394862, 2.124134, 6, 5,6,4)
+INSERT INTO Transports Values(7, 'delvered', 13.513534, 2.124134, 7, 4,7,3)
+INSERT INTO Transports Values(8, 'picked', 13.513534, 2.124134, 1, 8, 3,2)
+INSERT INTO Transports Values(9, 'delivered', 41.3434312, 13.513534, 9, 2,4,1)
+INSERT INTO Transports Values(10, 'delivered', 21.3434312, 73.513534, 10, 1,4,6)
 
 
 
 
 SELECT * FROM Transports
 
-INSERT INTO Group_of_packages Values(1, 2, 202, 11, 23,1)
-SELECT * FROM Group_of_packages
+INSERT INTO PackageTransport Values(1, 1)
+INSERT INTO PackageTransport Values(2, 9)
+INSERT INTO PackageTransport Values(3, 8)
+INSERT INTO PackageTransport Values(4, 7)
+INSERT INTO PackageTransport Values(5, 6)
+INSERT INTO PackageTransport Values(6, 5)
+INSERT INTO PackageTransport Values(7, 4)
+INSERT INTO PackageTransport Values(8, 3)
+INSERT INTO PackageTransport Values(9, 2)
+INSERT INTO PackageTransport Values(10, 1)
+INSERT INTO PackageTransport Values(12, 2)
+INSERT INTO PackageTransport Values(13, 10)
+SELECT * FROM PackageTransport
+
 
 INSERT INTO Transshipments Values(1, '2022-11-29 14:32:44', 1)
 INSERT INTO Transshipments Values(2, '2022-11-30 11:22:07', 1)

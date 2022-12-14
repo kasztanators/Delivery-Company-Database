@@ -1,5 +1,5 @@
 drop table Transshipments
-drop table Group_of_packages
+drop table PackageTransport
 drop table Transports
 drop table Driverlogs
 drop table Vehicles

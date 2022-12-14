@@ -47,7 +47,7 @@
 	 weight INT not null,
 	 addressREF INT REFERENCES Addresses ON DELETE SET NULL,
 	 orderREF INT REFERENCES Orders ON DELETE SET NULL,
-	 receiverREF INT REFERENCES Receivers ON DELETE SET NULL
+	 receiverREF INT REFERENCES Receivers ON DELETE CASCADE
 	);
 
 	CREATE TABLE Tracking_info
@@ -100,14 +100,12 @@
 	fromUnitREF INT REFERENCES Delivery_units(unitID),
 	toUnitREF INT REFERENCES Delivery_units(unitID)
 	);
-	CREATE TABLE Group_of_packages
+
+	CREATE TABLE PackageTransport
 	(
-	groupID INT PRIMARY KEY,
-	weight INT not null,
-	size_x INT not null ,
-	size_y INT not null,
-	size_z INT not null,
-	transportREF INT REFERENCES Transports ON DELETE SET NULL
+	transportREF INT REFERENCES Transports(transportID) ON DELETE CASCADE,	
+	packageREF INT REFERENCES Packages(packageID) ON DELETE CASCADE,
+	PRIMARY KEY ( transportREF,packageREF)
 	);
 	CREATE TABLE Transshipments
 	(
