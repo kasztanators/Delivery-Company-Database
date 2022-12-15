@@ -85,9 +85,9 @@ INSERT INTO Packages Values(7, 1, 19, 5, 15, 8, 8, 4, 7)
 INSERT INTO Packages Values(8, 0, 14, 12, 16, 6, 4, 5, 8)
 INSERT INTO Packages Values(9, 1, 12, 12, 18, 22, 5, 6, 9)
 INSERT INTO Packages Values(10, 0, 19, 11, 19, 12, 3, 7, 10)
-INSERT INTO Packages Values(11, 1, 12, 112, 17, 31, 1, 8, 11)
-INSERT INTO Packages Values(12, 0, 11, 121, 15, 6, 9, 9, 12)
-INSERT INTO Packages Values(13, 0, 141, 121, 18, 4, 17, 10, 13)
+INSERT INTO Packages Values(11, 1, 12, 112, 17, 31, 1, 8, 1)
+INSERT INTO Packages Values(12, 0, 11, 121, 15, 6, 9, 9, 2)
+INSERT INTO Packages Values(13, 0, 141, 121, 18, 4, 17, 10, 3)
 SELECT * FROM Packages
 
 

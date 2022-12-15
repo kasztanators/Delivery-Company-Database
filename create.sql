@@ -103,9 +103,9 @@
 
 	CREATE TABLE PackageTransport
 	(
-	transportREF INT REFERENCES Transports(transportID) ON DELETE CASCADE,	
 	packageREF INT REFERENCES Packages(packageID) ON DELETE CASCADE,
-	PRIMARY KEY ( transportREF,packageREF)
+	transportREF INT REFERENCES Transports(transportID) ON DELETE CASCADE,	
+	PRIMARY KEY ( packageREF,transportREF)
 	);
 	CREATE TABLE Transshipments
 	(
