@@ -1,21 +1,21 @@
 	CREATE TABLE Users
 	(
 	 userID INT PRIMARY KEY,
-	 name CHAR(25) CHECK (name NOT LIKE '%[^a-z, A-Z]%') not null,
-	 surname CHAR(35) CHECK (surname NOT LIKE '%[^a-z , A-Z]%') not null,
-	 user_name CHAR(25) not null UNIQUE,
-	 password CHAR(25) CHECK (LEN(password) >= 5)not null,
-	 email VARCHAR(255) CHECK (email like '%_@__%.__%')not null UNIQUE
+	 name CHAR(25) CHECK (name NOT LIKE '%[^a-z, A-Z]%') NOT NULL,
+	 surname CHAR(35) CHECK (surname NOT LIKE '%[^a-z , A-Z]%') NOT NULL,
+	 user_name CHAR(25) NOT NULL UNIQUE,
+	 password CHAR(25) CHECK (LEN(password) >= 5)NOT NULL,
+	 email VARCHAR(255) CHECK (email like '%_@__%.__%')NOT NULL UNIQUE
 
 	);
 	CREATE TABLE Addresses
 	(
 	 addressID INT PRIMARY KEY,
-	 city CHAR(20) CHECK (city like '%[^a-zA-Z]%') not null,
-	 region CHAR(30) not null,
-	 postcode CHAR(6) CHECK (postcode like '[0-9][0-9]-[0-9][0-9][0-9]') not null,
-	 street CHAR(25) not null, 
-	 building_number CHAR(5) not null
+	 city CHAR(20) CHECK (city like '%[^a-zA-Z]%') NOT NULL,
+	 region CHAR(30) NOT NULL,
+	 postcode CHAR(6) CHECK (postcode like '[0-9][0-9]-[0-9][0-9][0-9]') NOT NULL,
+	 street CHAR(25) NOT NULL, 
+	 building_number CHAR(5) NOT NULL
 	);
 	CREATE TABLE HasAddress
 	(
@@ -26,9 +26,9 @@
 	CREATE TABLE Receivers
 	(
 	 receiverID INTEGER PRIMARY KEY,
-	 name CHAR(30) CHECK ( name NOT LIKE '%[^a-z, A-Z]%')not null,
-	 surname CHAR (30) CHECK ( surname  NOT LIKE '%[^a-z , A-Z]%')not null,
-	 email CHAR(25) CHECK (email like '%_@__%.__%') not null
+	 name CHAR(30) CHECK ( name NOT LIKE '%[^a-z, A-Z]%')NOT NULL,
+	 surname CHAR (30) CHECK ( surname  NOT LIKE '%[^a-z , A-Z]%')NOT NULL,
+	 email CHAR(25) CHECK (email like '%_@__%.__%') NOT NULL
 	);
 	CREATE TABLE Orders
 	(
@@ -40,11 +40,11 @@
 	CREATE TABLE Packages
 	(
 	 packageID INTEGER PRIMARY KEY,
-	 is_fragile BIT not null,
-	 size_X INT not null,
-	 size_Y INT not null,
-	 size_Z INT not null,
-	 weight INT not null,
+	 is_fragile BIT DEFAULT 0 NOT NULL,
+	 size_X INT CHECK(size_X > 0 AND size_X < 500 ) NOT NULL,
+	 size_Y INT CHECK(size_Y > 0 AND size_Y < 500) NOT NULL,
+	 size_Z INT CHECK(size_Z > 0 AND size_Z < 500) NOT NULL,
+	 weight INT CHECK(weight > 0 ) NOT NULL,
 	 addressREF INT REFERENCES Addresses ON DELETE SET NULL,
 	 orderREF INT REFERENCES Orders ON DELETE SET NULL,
 	 receiverREF INT REFERENCES Receivers ON DELETE CASCADE
@@ -65,27 +65,27 @@
 	CREATE TABLE Delivery_units
 	(
 	unitID INT PRIMARY KEY,
-	capacity INT not null,
+	capacity INT CHECK(capacity > 0) NOT NULL,
 	addressREF INT REFERENCES Addresses ON DELETE SET NULL
 	);
 
 	CREATE TABLE Deliverymen
 	(
 	deliverymanID INT PRIMARY KEY,
-	phone_num CHAR(9) CHECK (phone_num NOT LIKE '%[^0-9]%{9}') not null
+	phone_num CHAR(9) CHECK (phone_num NOT LIKE '%[^0-9]%{9}') NOT NULL
 	);
 	CREATE TABLE Vehicles
 	(
 	vehicleID INT  PRIMARY KEY,
-	register_plate CHAR(8) not null,
-	type CHAR(12) not null,
-	is_available BIT not null
+	register_plate CHAR(8) NOT NULL,
+	type CHAR(12) NOT NULL,
+	is_available BIT DEFAULT 0 NOT NULL
 	);
 
 	CREATE TABLE Driverlogs
 	(
 	driverlogID INT PRIMARY KEY,
-	licence_type CHAR(2) not null,
+	licence_type CHAR(2) NOT NULL,
 	deliverymanREF INT REFERENCES Deliverymen ON DELETE SET NULL,
 	vehicleREF INT REFERENCES Vehicles ON DELETE SET NULL
 	);
@@ -93,8 +93,8 @@
 	(
 	transportID INT PRIMARY KEY,
 	status CHAR(10),
-	x_coor FLOAT,
-	y_coor FLOAT,
+	x_coor FLOAT CHECK(x_coor > 0),
+	y_coor FLOAT CHECK(y_coor > 0),
 	vehicleREF INT REFERENCES Vehicles ON DELETE SET NULL,
 	deliverymanREF INT REFERENCES Deliverymen ON DELETE SET NULL,
 	fromUnitREF INT REFERENCES Delivery_units(unitID),
@@ -110,6 +110,6 @@
 	CREATE TABLE Transshipments
 	(
 	transshipmentID INT PRIMARY KEY,
-	date DATETIME not null,
+	date DATETIME NOT NULL,
 	packageREF INT REFERENCES Packages ON DELETE CASCADE
 	);

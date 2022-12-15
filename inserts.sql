@@ -9,6 +9,9 @@ INSERT INTO Users Values (8, 'Dariusz', 'Dario', 'glosnik', 'DGSVgbas', 's131869
 INSERT INTO Users Values (9, 'Michal', 'Tukowski', 'scyzoryk', 'aresvbyt', 's175695@gmail.com')
 INSERT INTO Users Values (10, 'Adrian', 'Chodan', 'sluchawki', 'kugfghf', 's188634@gmail.com')
 SELECT * FROM Users
+UPDATE Users
+SET name = 'Kamila'
+WHERE userID =1
 
 INSERT INTO Addresses Values (1, 'Gdansk', 'Pomorskie' , '80-152', 'Traugutta', 9)
 INSERT INTO Addresses Values (2, 'Warszawa', 'Mazowieckie' , '00-018', 'Europejska', 19)
@@ -250,3 +253,5 @@ INSERT INTO Transshipments Values(19, '2021-07-12 02:07:39', 10)
 INSERT INTO Transshipments Values(20, '2021-07-12 06:07:39', 10)
 
 SELECT * FROM Transshipments
+
+
