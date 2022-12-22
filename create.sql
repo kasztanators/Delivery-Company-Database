@@ -44,16 +44,17 @@
 	 size_X INT CHECK(size_X > 0 AND size_X < 500 ) NOT NULL,
 	 size_Y INT CHECK(size_Y > 0 AND size_Y < 500) NOT NULL,
 	 size_Z INT CHECK(size_Z > 0 AND size_Z < 500) NOT NULL,
-	 weight INT CHECK(weight > 0 ) NOT NULL,
+	 weight INT CHECK(weight > 0 AND weight < 200) NOT NULL,
 	 addressREF INT REFERENCES Addresses ON DELETE SET NULL,
 	 orderREF INT REFERENCES Orders ON DELETE SET NULL,
-	 receiverREF INT REFERENCES Receivers ON DELETE CASCADE
+	 receiverREF INT REFERENCES Receivers ON DELETE SET NULL
 	);
 
 	CREATE TABLE Tracking_info
 	(
 	trackerID INT PRIMARY KEY,
 	message_CHAR VARCHAR(255),
+	packageREF INT REFERENCES Packages ON DELETE SET NULL
 	);
 	CREATE TABLE Tracker
 	(
@@ -65,7 +66,7 @@
 	CREATE TABLE Delivery_units
 	(
 	unitID INT PRIMARY KEY,
-	capacity INT CHECK(capacity > 0) NOT NULL,
+	capacity INT CHECK(capacity >= 0) NOT NULL,
 	addressREF INT REFERENCES Addresses ON DELETE SET NULL
 	);
 
@@ -86,15 +87,15 @@
 	(
 	driverlogID INT PRIMARY KEY,
 	licence_type CHAR(2) NOT NULL,
-	deliverymanREF INT REFERENCES Deliverymen ON DELETE SET NULL,
-	vehicleREF INT REFERENCES Vehicles ON DELETE SET NULL
+	deliverymanREF INT REFERENCES Deliverymen ON DELETE CASCADE,
+	vehicleREF INT REFERENCES Vehicles ON DELETE CASCADE
 	);
 	CREATE TABLE Transports
 	(
 	transportID INT PRIMARY KEY,
 	status CHAR(10),
-	x_coor FLOAT CHECK(x_coor > 0),
-	y_coor FLOAT CHECK(y_coor > 0),
+	x_coor FLOAT,
+	y_coor FLOAT ,
 	vehicleREF INT REFERENCES Vehicles ON DELETE SET NULL,
 	deliverymanREF INT REFERENCES Deliverymen ON DELETE SET NULL,
 	fromUnitREF INT REFERENCES Delivery_units(unitID),
@@ -111,5 +112,6 @@
 	(
 	transshipmentID INT PRIMARY KEY,
 	date DATETIME NOT NULL,
-	packageREF INT REFERENCES Packages ON DELETE CASCADE
+	packageREF INT REFERENCES Packages ON DELETE CASCADE,
+	unitREF INT REFERENCES Delivery_units (unitID)
 	);
