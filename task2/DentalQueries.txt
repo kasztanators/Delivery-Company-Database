@@ -1,0 +1,12 @@
+Retrieve all patients that have a particular doctor and have a parent with a different doctor:
+
+ SELECT p.* FROM Patient p INNER JOIN Patient parent ON p.FK_ID_parent = parent.ID_patient WHERE p.FK_ID_doctor = [doctor id] AND parent.FK_ID_doctor != [doctor id]
+
+
+2.Retrieve the total number of instalments for each payment, along with the payment form:
+
+SELECT p.form, SUM(i.howManyParts) FROM Payment p INNER JOIN Instalment i ON p.ID_payment = i.FK_ID_payment GROUP BY p.ID_payment
+
+3.Retrieve all treatment done entries for a particular appointment, along with the corresponding treatment catalog entry:
+
+SELECT td.*, tc.* FROM Treatment Done td INNER JOIN Treatment Catalog tc ON td.FK_ID_treat_catal = tc.ID_treat_catal WHERE td.FK_appointment = [appointment id]

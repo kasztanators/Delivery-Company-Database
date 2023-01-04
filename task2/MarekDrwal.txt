@@ -1,0 +1,31 @@
+1. Find the number of students in each group, ordered by the number of students in each group:
+
+SELECT Groups_in_a_semester.ID, COUNT(belongs_to.student_id) as "Number of Students"
+FROM Groups_in_a_semester
+LEFT JOIN belongs_to ON Groups_in_a_semester.ID = belongs_to.group_id
+GROUP BY Groups_in_a_semester.ID
+ORDER BY COUNT(belongs_to.student_id) DESC
+2. Find the number of applications received in a specific year and semester, grouped by the type of benefit applied for:
+SELECT COUNT(Applications.ID) as "Number of Applications", Kinds_of_benefits.kind
+FROM Applications
+INNER JOIN Amounts_of_benefits ON Applications.rank_group = Amounts_of_benefits.ID
+INNER JOIN Kinds_of_benefits ON Amounts_of_benefits.kind = Kinds_of_benefits.ID
+WHERE Amounts_of_benefits.year = [year] AND Amounts_of_benefits.semester = [semester]
+GROUP BY Kinds_of_benefits.kind
+
+Find the students with the highest average grade, limited to the top 10 students:
+SELECT Students.*, AVG(Applications.avg_grade) as "Average Grade"
+FROM Students
+INNER JOIN Applications ON Students.album_nb = Applications.sender
+GROUP BY Students.album_nb
+ORDER BY AVG(Applications.avg_grade) DESC
+LIMIT 10
+
+Find the average value of all approved benefits, grouped by the type of benefit:
+
+SELECT AVG(Decisions.value) as "Average Value", Kinds_of_benefits.kind
+FROM Decisions
+INNER JOIN Applications ON Decisions.application = Applications.ID
+INNER JOIN Kinds_of_benefits ON Applications.benefit_kind = Kinds_of_benefits.ID
+WHERE Decisions.approved = 1
+GROUP BY Kinds_of_benefits.kind
