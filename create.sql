@@ -123,5 +123,4 @@
 	receiver_REF INT,
 	FOREIGN KEY (tracker_REF, receiver_REF) REFERENCES Tracker (trackerREF, receiverREF)
 
-
 	);
