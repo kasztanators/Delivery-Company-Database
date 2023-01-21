@@ -91,6 +91,7 @@ INSERT INTO Packages Values(10, 0, 19, 11, 19, 12, 3, 7, 10)
 INSERT INTO Packages Values(11, 1, 12, 112, 17, 31, 1, 8, 1)
 INSERT INTO Packages Values(12, 0, 11, 121, 15, 6, 9, 9, 2)
 INSERT INTO Packages Values(13, 0, 141, 121, 18, 4, 17, 10, 3)
+INSERT INTO Packages Values(14, 0, 144, 21, 13, 4, 17, 10, 3)
 SELECT * FROM Packages
 
 
@@ -179,6 +180,8 @@ INSERT INTO Vehicles Values(9,'WW23928', 'motorbike', 0)
 INSERT INTO Vehicles Values(10,'NOL0051', 'lorry', 0)
 INSERT INTO Vehicles Values(11,'GCH1574', 'lorry', 1)
 INSERT INTO Vehicles Values(12,'LPA9846', 'lorry', 0)
+INSERT INTO Vehicles Values(13,'LPO9846', 'lorry', 0)
+
 
 
 SELECT * FROM Vehicles
@@ -210,6 +213,7 @@ INSERT INTO Transports Values(7, 'delivered', 13.513534, 2.124134, 7, 4,7,3)
 INSERT INTO Transports Values(8, 'picked', 13.513534, 2.124134, 1, 8, 3,2)
 INSERT INTO Transports Values(9, 'delivered', 41.3434312, 13.513534, 9, 2,4,1)
 INSERT INTO Transports Values(10, 'delivered', 21.3434312, 73.513534, 10, 1,4,6)
+INSERT INTO Transports Values(11, 'delivered', 21.3434312, 73.513534, 13, 1,4,6)
 
 
 
@@ -228,6 +232,7 @@ INSERT INTO PackageTransport Values(9, 2)
 INSERT INTO PackageTransport Values(10, 1)
 INSERT INTO PackageTransport Values(12, 2)
 INSERT INTO PackageTransport Values(13, 10)
+INSERT INTO PackageTransport Values(14, 11)
 SELECT * FROM PackageTransport
 
 

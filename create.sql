@@ -26,8 +26,8 @@
 	CREATE TABLE Receivers
 	(
 	 receiverID INTEGER PRIMARY KEY,
-	 name CHAR(30) CHECK ( name NOT LIKE '%[^a-z, A-Z]%')NOT NULL,
-	 surname CHAR (30) CHECK ( surname  NOT LIKE '%[^a-z , A-Z]%')NOT NULL,
+	 surname CHAR(30) CHECK ( surname NOT LIKE '%[^a-z, A-Z]%')NOT NULL,
+	 name CHAR (30) CHECK ( name  NOT LIKE '%[^a-z , A-Z]%')NOT NULL,
 	 email CHAR(25) CHECK (email like '%_@__%.__%') NOT NULL
 	);
 	CREATE TABLE Orders
