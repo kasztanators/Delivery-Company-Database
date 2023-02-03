@@ -2,7 +2,10 @@
 
 SELECT name,
        surname,
-       COUNT(Packages.packageID) AS 'Number of packages'
+	   CASE 
+	   WHEN COUNT(Packages.packageID) <2 THEN 'single'
+	   ELSE 'multiple'
+	   END AS Number_of_packages
 FROM Users,
      Packages,
      Orders
@@ -20,11 +23,11 @@ SELECT AVG(weight) AS 'average package weight',
 FROM Packages
 JOIN Addresses ON Packages.addressREF = Addresses.addressID
 JOIN Orders ON Packages.orderREF = Orders.orderID
-WHERE Orders.date_of_check_in > '2020-01-01 00:00:00'
-AND Orders.date_of_check_in < '2021-01-01 00:00:00'
+WHERE Orders.date_of_check_in BETWEEN '2020-01-01 00:00:00'
+AND  '2021-01-01 00:00:00'
 GROUP BY city
 
----3 retrieves messages info for packages where volume is below average
+---3 retrieves messages info for packages where volume is below average, and reciever email domain is gmail.com
 SELECT Tracking_info.trackerID, Tracking_info.message_CHAR, name, surname, email
 	FROM Tracking_info
 	JOIN Packages ON Tracking_info.packageREF = Packages.packageID
@@ -35,14 +38,15 @@ SELECT Tracking_info.trackerID, Tracking_info.message_CHAR, name, surname, email
 	ORDER BY Tracking_info.trackerID
 	
 
---4Find all the delivery men that has delivered packages to a specific region
+--4Find all the delivery men that has delivered packages to a specific region and delivery unit capacity is above avg
 SELECT deliverymanID, phone_num, city, capacity
 FROM Deliverymen
 JOIN Transports ON Transports.deliverymanREF = Deliverymen.deliverymanID
 JOIN Delivery_units ON Delivery_units.unitID = Transports.toUnitREF
 JOIN Addresses ON Delivery_units.addresREF = Addresses.addressID
-WHERE Addresses.region = 'Kujawsko-Pomorskie' AND Transports.status = 'picked' 
-
+WHERE Addresses.region = 'Kujawsko-Pomorskie' AND Transports.status = 'picked' AND 
+	Delivery_units.capacity> (Select AVG(Delivery_units.capacity) FROM Delivery_units)
+ORDER BY capacity DESC
 
 --5Find the most commonly used delivery unit that was used for a package delivery:
 SELECT Delivery_units.unitID,
